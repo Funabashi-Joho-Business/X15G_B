@@ -1,15 +1,11 @@
-package jp.ac.chiba_fjb.b.ebi.data;
+package jp.ac.chiba_fjb.b.ebi;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.junit.Test;
 
-import java.util.List;
-
 import jp.ac.chiba_fjb.b.ebi.data.Json.Json;
-
-/**
- * Created by x15g008 on 2017/10/16.
- */
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 class Data{
     public int id;
     public int release;
@@ -17,15 +13,18 @@ class Data{
     public String title;
     public String reading;
     public String artist;
-    public int lev_bas;
-    public int lev_adv;
-    public int lev_exp;
-    public int lev_mas;
-    public int lev_WE;
+    public String lev_bas;
+    public String lev_adv;
+    public String lev_exp;
+    public String lev_mas;
+    public String lev_WE;
 }
-class DataList{
-    public List<Data> list;
-}
+
+
+
+/**
+ * Created by x15g008 on 2017/10/16.
+ */
 
 public class ExampleUnitTest {
     //@Test
@@ -45,17 +44,16 @@ public class ExampleUnitTest {
             System.out.println(data.lev_adv);
             System.out.println(data.lev_exp);
             System.out.println(data.lev_mas);
-            System.out.println(data.lev_WE);
         }
     }
 
     @Test
     public void test2() throws Exception {
-        DataList dataList = Json.send(url,null,DataList.class);
-        if(dataList == null)
+        Data[] list = Json.send(url,null,Data[].class);
+        if(list == null)
             System.out.println("受信エラー");
         else {
-            List<Data> list = dataList.list;
+            //List<Data> list = dataList.list;
             for(Data data : list){
                 System.out.println(data.id);
                 System.out.println(data.release+"\n");
@@ -66,7 +64,6 @@ public class ExampleUnitTest {
                 System.out.println(data.lev_adv+"\n");
                 System.out.println(data.lev_exp+"\n");
                 System.out.println(data.lev_mas+"\n");
-                System.out.println(data.lev_WE+"\n");
             }
         }
     }
