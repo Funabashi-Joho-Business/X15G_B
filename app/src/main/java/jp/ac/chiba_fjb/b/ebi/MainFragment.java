@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,12 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     String lv1;
     String lv2;
     String lv3;
+    String ja1;
+    String ja2;
+    String ja3;
+    String di1;
+    String di2;
+    String di3;
     static Spinner s1;
     static Spinner s2;
     static Spinner s3;
@@ -114,7 +121,18 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
         Button button = (Button) view.findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-
+                Bundle b=new Bundle();
+                b.putString(di1,"DI1");
+                b.putString(di2,"DI2");
+                b.putString(di3,"DI3");
+                b.putString(ja1,"JA1");
+                b.putString(ja2,"JA2");
+                b.putString(ja3,"JA3");
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment f=new BlankFragment();
+                f.setArguments(b);
+                ft.replace(R.id.fragment,f);
+                ft.commit();
             }
         });
     }
@@ -177,14 +195,13 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                 e.printStackTrace();
             }
         }
-        String ja1 = s1.getSelectedItem().toString();//1曲目のジャンル取得
-        String ja2 = s4.getSelectedItem().toString();//2曲目のジャンル取得
-        String ja3 = s7.getSelectedItem().toString();//3曲目のジャンル取得
-        String di1 = s2.getSelectedItem().toString();//1曲目のジャンル取得
-        String di2 = s5.getSelectedItem().toString();//2曲目のジャンル取得
-        String di3 = s8.getSelectedItem().toString();//3曲目のジャンル取得
-//        Intent intent = new Intent(getApplication(),Main2Activity.class);
-//        intent.putExtra("JA1",ja1);
+        ja1 = s1.getSelectedItem().toString();//1曲目のジャンル取得
+        ja2 = s4.getSelectedItem().toString();//2曲目のジャンル取得
+        ja3 = s7.getSelectedItem().toString();//3曲目のジャンル取得
+        di1 = s2.getSelectedItem().toString();//1曲目のジャンル取得
+        di2 = s5.getSelectedItem().toString();//2曲目のジャンル取得
+        di3 = s8.getSelectedItem().toString();//3曲目のジャンル取得
+
     }
 
     @Override

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFF00"
     tools:context="jp.ac.chiba_fjb.b.ebi.MainActivity">
 
     <LinearLayout
@@ -71,16 +72,16 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/textView17"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
                                 android:text="ジャンル"
-                                android:textSize="14sp" />
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner"
@@ -98,9 +99,10 @@
                             <TextView
                                 android:id="@+id/textView16123"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
-                                android:text="難易度" />
+                                android:text="難易度"
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner2"
@@ -118,9 +120,10 @@
                             <TextView
                                 android:id="@+id/textView1523"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
-                                android:text="レベル" />
+                                android:text="レベル"
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner3"
@@ -152,7 +155,7 @@
                             <TextView
                                 android:id="@+id/textView171"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
                                 android:text="ジャンル" />
 
@@ -172,7 +175,7 @@
                             <TextView
                                 android:id="@+id/textView161"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
                                 android:text="難易度" />
 
@@ -192,7 +195,7 @@
                             <TextView
                                 android:id="@+id/textView151"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
                                 android:text="レベル" />
 
@@ -226,7 +229,7 @@
                             <TextView
                                 android:id="@+id/textView172"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
                                 android:text="ジャンル" />
 
@@ -240,13 +243,13 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/textView162"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
                                 android:text="難易度" />
 
@@ -266,7 +269,7 @@
                             <TextView
                                 android:id="@+id/textView152"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="30dp"
                                 android:layout_weight="1"
                                 android:text="レベル" />
 
@@ -285,7 +288,8 @@
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
-                    android:layout_height="63dp"
+                    android:layout_height="80dp"
+                    android:gravity="center_horizontal"
                     android:text="選曲" />
 
             </LinearLayout>
