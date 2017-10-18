@@ -3,20 +3,19 @@ package jp.ac.chiba_fjb.b.ebi;
 
 
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 import java.util.Calendar;
 
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     TextView t;
     double lv10 = 0.0;
@@ -37,11 +36,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     static ArrayAdapter<String> jan;
     static ArrayAdapter<String> nan;
     static ArrayAdapter<String> level;
-    static String j[] = {"選択して下さい","POP&ANIME","niconico","東方Project","VARIETY","イロドリミドリ","言ノ葉Project","ORIGINAL"};
-    static String n[] = {"選択して下さい","Basic","Advanced","Expert","Master"};
+    static String j[] = {"選択して下さい", "POP&ANIME", "niconico", "東方Project", "VARIETY", "イロドリミドリ", "言ノ葉Project", "ORIGINAL"};
+    static String n[] = {"選択して下さい", "Basic", "Advanced", "Expert", "Master"};
     static String[] lv = {"選択して下さい"};
 
-    Calendar cal= Calendar.getInstance();
+    Calendar cal = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +52,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 Time time = new Time("Asia/Tokyo");
                 time.setToNow();
-                String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
-                t = (TextView)findViewById(R.id.textView21);
+                String strDay = time.year + "年" + (time.month + 1) + "月" + time.monthDay + "日" + time.hour + "時" + time.minute + "分";
+                t = (TextView) findViewById(R.id.textView21);
                 t.setText(strDay);
 
             }
@@ -70,13 +69,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         s8 = (Spinner) findViewById(R.id.spinner8);
         s9 = (Spinner) findViewById(R.id.spinner9);
 
-        jan = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,j);
+        jan = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, j);
         jan.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        nan = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,n);
+        nan = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, n);
         nan.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        level = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lv);
+        level = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lv);
         level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         s1.setAdapter(jan);
@@ -114,8 +113,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //            }
 //        });
     }
-    public void setLevel(Spinner s){
-        level = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lv);
+
+    public void setLevel(Spinner s) {
+        level = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lv);
         level.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(level);
 
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // Spinner を取得
         Spinner spinner = (Spinner) parent;
-        if(spinner.equals(s2)||spinner.equals(s5)||spinner.equals(s8)) {
+        if (spinner.equals(s2) || spinner.equals(s5) || spinner.equals(s8)) {
             // 選択されたアイテムのテキストを取得
             String str = spinner.getSelectedItem().toString();
             if (str.equals("Basic")) {
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             } else if (spinner.equals(s8)) {
                 setLevel(s9);
             }
-        }else if(spinner.equals(s3)||spinner.equals(s6)||spinner.equals(s9)) {
+        } else if (spinner.equals(s3) || spinner.equals(s6) || spinner.equals(s9)) {
             lv10 = 0.0;
             lv20 = 0.0;
             lv30 = 0.0;
@@ -188,10 +188,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-
-
-
+    public Double onItemSelected(Double a, Double b, Double c) {
+        String one;
+        StringBuilder sb = new StringBuilder();
+        if (a.charAt(a.length() - 1) == 0.5) {
+            a = a - 0.5;
+            one = String.valueOf(a);
+            sb.append(one);
+            sb.append("+");
+            sb.toString();
+        }
+    }
 }
+
+
 
 
 
