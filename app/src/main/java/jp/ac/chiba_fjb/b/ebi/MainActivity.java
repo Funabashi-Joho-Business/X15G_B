@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import java.util.Calendar;
 
+import jp.ac.chiba_fjb.b.ebi.data.TestDB;
+
 
 public class MainActivity extends AppCompatActivity{
 
@@ -27,6 +29,9 @@ public class MainActivity extends AppCompatActivity{
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.fragment,new MainFragment());
         ft.commit();
+        TestDB db = new TestDB(this);
+        db.query("");
+        db.close();
     }
 
 
