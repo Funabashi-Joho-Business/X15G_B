@@ -22,6 +22,7 @@ import java.util.Calendar;
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     TextView t;
@@ -54,6 +55,8 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     static String[] lv = {"選択して下さい"};
 
     Calendar cal= Calendar.getInstance();
+
+
 
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
@@ -122,12 +125,15 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Bundle b=new Bundle();
-                b.putString(di1,"DI1");
-                b.putString(di2,"DI2");
-                b.putString(di3,"DI3");
-                b.putString(ja1,"JA1");
-                b.putString(ja2,"JA2");
-                b.putString(ja3,"JA3");
+                b.putString("DI1",di1);
+                b.putString("DI2",di2);
+                b.putString("DI3",di3);
+                b.putString("JA1",ja1);
+                b.putString("JA2",ja2);
+                b.putString("JA3",ja3);
+                b.putDouble("LV1",lv10);
+                b.putDouble("LV2",lv20);
+                b.putDouble("LV3",lv30);
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment f=new BlankFragment();
                 f.setArguments(b);

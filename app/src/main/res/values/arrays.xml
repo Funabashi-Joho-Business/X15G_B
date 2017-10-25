@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xml:space="preserve">
+
+    <string-array name="game">
+        <item>ＲＰＧ</item>
+        <item>アクション</item>
+        <item>アドベンチャー</item>
+        <item>オンライン</item>
+        <item>シミュレーション</item>
+        <item>シューティング</item>
+        <item>スポーツ</item>
+        <item>パズル</item>
+        <item>ホラー</item>
+        <item>モバイル</item>
+        <item>恋愛</item>
+    </string-array>
+
+</resources>
