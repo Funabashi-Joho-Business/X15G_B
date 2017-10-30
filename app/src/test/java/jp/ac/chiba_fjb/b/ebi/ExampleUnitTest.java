@@ -2,7 +2,7 @@ package jp.ac.chiba_fjb.b.ebi;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import jp.ac.chiba_fjb.b.ebi.data.ChuniReader;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -11,7 +11,8 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void Test() throws Exception {
+        if(!ChuniReader.recvTest())
+            System.out.println("接続エラー");
     }
 }
