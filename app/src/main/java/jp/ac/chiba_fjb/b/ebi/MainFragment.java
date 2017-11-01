@@ -1,7 +1,6 @@
 package jp.ac.chiba_fjb.b.ebi;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,12 +17,14 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
+import jp.ac.chiba_fjb.b.ebi.data.Insertriyou;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 
-public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener,Insertriyou.OnRecvListener {
 
     TextView t;
     double lv10 = 0.0;
@@ -57,7 +58,6 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     Calendar cal= Calendar.getInstance();
 
 
-
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -71,7 +71,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                 String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
                 t = (TextView) view.findViewById(R.id.textView21);
                 t.setText(strDay);
-
+               Insertriyou st = new Insertriyou(getContext(),MainFragment.this);
             }
         });
 
@@ -228,4 +228,8 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
+    @Override
+    public void OnRecv(boolean flg) {
+
+    }
 }
