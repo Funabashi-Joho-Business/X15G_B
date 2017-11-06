@@ -16,7 +16,7 @@ public class ChuniReader {
 
 		//検索パターンを設定
 		Pattern p = Pattern.compile(
-			"<p class=\"date\">(.*?)</p>.*?"+
+			"http://www.sdvx.in/chunithm.html"+
 			"<img src=\".*?\" border=\"0\" alt=\"(.*?)\">.*?"+
 			"<li class=\"high\"><em>(.*?)</em>.*?"+
 			"<li class=\"low\"><em>(.*?)</em>",Pattern.DOTALL);
