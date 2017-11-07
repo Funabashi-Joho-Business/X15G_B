@@ -46,13 +46,13 @@ public class TestDB extends SQLite
             String sql=String.format("INSERT INTO song_table VALUES(%d,'%s','%s','%s')",data.id,SQLite.STR(data.title),STR(data.image),STR(data.category));
             exec(sql);
 
-            String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s')",count,data.lev_bas);
+            String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')",count,"lev_bas",data.lev_bas);
             exec(sql2);
-            String sql3 = String.format("INSERT INTO difficult_table VALUES(%d,'%s')",count,data.lev_adv);
+            String sql3 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')",count,"lev_adv",data.lev_adv);
             exec(sql3);
-            String sql4 = String.format("INSERT INTO difficult_table VALUES(%d,'%s')",count,data.lev_exp);
+            String sql4 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')",count,"lev_exp",data.lev_exp);
             exec(sql4);
-            String sql5 = String.format("INSERT INTO difficult_table VALUES(%d,'%s')",count,data.lev_mas);
+            String sql5 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')",count,"lev_mas",data.lev_mas);
             exec(sql5);
 
             count++;

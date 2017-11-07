@@ -19,7 +19,11 @@ class Data{
     public String lev_WE;
 }
 
+
+
+
 public class ExampleUnitTest {
+
     String url ="https://chunithm.sega.jp/js/music/json/common.json";
 
     public Data[] test2() throws Exception {
