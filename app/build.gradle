@@ -49,21 +49,7 @@ dependencies {
 dependencies {
     compile 'com.android.support:support-v4:25.+'
 }
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
-dependencies {
-    compile 'com.android.support:support-v4:25.+'
-}
+
 dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.8.8'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.8'
