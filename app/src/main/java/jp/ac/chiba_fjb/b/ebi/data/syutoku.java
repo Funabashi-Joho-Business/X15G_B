@@ -25,6 +25,7 @@ class Data{
 }
 
 public class syutoku {
+    int i=0;
     String url ="https://chunithm.sega.jp/js/music/json/common.json";
 
     public Data[] test2() throws Exception {
@@ -34,6 +35,7 @@ public class syutoku {
         else {
             //List<Data> list = dataList.list;
             for(Data data : list){
+                i++;
                 //            System.out.println(data.id);
                 //            System.out.println(data.release+"\n");
                 System.out.println(data.category+"\n");
