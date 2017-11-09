@@ -15,7 +15,7 @@ class ArrayData{
 }
 
 public class ChuniReader2 {
-    public static ArrayList<ArrayData> recvTest() {
+    public static  ArrayList<ArrayData> recvTest() {
         int i = 0;
         int b = 0;
         ArrayList<ArrayData> URL_DATA = new ArrayList<ArrayData>();

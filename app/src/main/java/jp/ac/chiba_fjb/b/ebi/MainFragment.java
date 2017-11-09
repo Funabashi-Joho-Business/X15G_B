@@ -57,11 +57,13 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     Calendar cal= Calendar.getInstance();
 
 
+
+
+
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+//更新時処理　下記参照
         view.findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,9 +72,16 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                 String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
                 t = (TextView) view.findViewById(R.id.textView21);
                 t.setText(strDay);
-               Insertriyou st = new Insertriyou(getContext(),MainFragment.this);
+                Insertriyou st = new Insertriyou(getContext(),MainFragment.this);
             }
         });
+//起動時処理・・・　公式サイトに新曲が追加されたため、データ更新されるまで表示されません
+        Time time = new Time("Asia/Tokyo");
+        time.setToNow();
+        String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
+        t = (TextView) view.findViewById(R.id.textView21);
+        t.setText(strDay);
+        Insertriyou st = new Insertriyou(getContext(),MainFragment.this);
 
         s1 = (Spinner) view.findViewById(R.id.spinner);
         s2 = (Spinner) view.findViewById(R.id.spinner2);
