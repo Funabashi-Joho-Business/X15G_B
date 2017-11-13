@@ -81,6 +81,8 @@ public class BlankFragment extends Fragment {
             lv30.append((int) (lv3/ 100 * 100));
         }
         ArrayList<String> unko = new ArrayList<String>();
+        ArrayList<String> unko2 = new ArrayList<String>();
+        ArrayList<String> unko3 = new ArrayList<String>();
         //データベースに接続
         TestDB db = new TestDB(getContext());
         //クエリーの発行
@@ -92,10 +94,26 @@ public class BlankFragment extends Fragment {
             //0列目を取り出し
             unko.add(res.getString(0)+"\n");
         }
+        String sql2 = String.format("select * from song_table natural join difficult_table where genre='%s' AND difficult='%s' AND level=%s", SQLite.STR((ja2)),SQLite.STR((di2)),SQLite.STR((lv20.toString())));
+        Cursor res2 = db.query(sql2);
+        //データがなくなるまで次の行へ
+        while(res2.moveToNext())
+        {
+            //0列目を取り出し
+            unko2.add(res2.getString(0)+"\n");
+        }
+        String sql3 = String.format("select * from song_table natural join difficult_table where genre='%s' AND difficult='%s' AND level=%s", SQLite.STR((ja3)),SQLite.STR((di3)),SQLite.STR((lv30.toString())));
+        Cursor res3 = db.query(sql3);
+        //データがなくなるまで次の行へ
+        while(res3.moveToNext())
+        {
+            //0列目を取り出し
+            unko3.add(res3.getString(0)+"\n");
+        }
         //カーソルを閉じる
         res.close();
         //データベースを閉じる
         db.close();
-        text.setText(lv30);
+       text.setText(ja2);
     }
 }

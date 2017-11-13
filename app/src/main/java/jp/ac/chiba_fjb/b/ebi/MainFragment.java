@@ -78,6 +78,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
         s8 = (Spinner) view.findViewById(R.id.spinner_n3);
         s9 = (Spinner) view.findViewById(R.id.spinner_l3);
 
+
         jan = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, j);
         jan.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -128,6 +129,18 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                 String item4 = (String)s5.getSelectedItem();
                 String item5 = (String)s7.getSelectedItem();
                 String item6 = (String)s8.getSelectedItem();
+
+//                if(("選択して下さい").equals(item3)&& ("選択して下さい").equals(item5)){
+//                    item3=item;
+//                    item5=item;
+//                }
+//
+//                if(("選択して下さい").equals(item4)&& ("選択して下さい").equals(item6)){
+//                    item4=item2;
+//                    item6=item2;
+//                }
+
+
                 if (("選択して下さい").equals(item)|| ("選択して下さい").equals(item2)|| ("選択してください").equals(item3)|| ("選択してください").equals(item4)|| ("選択してください").equals(item5)|| ("選択してください").equals(item6)){
 
                     new AlertDialog.Builder(getActivity())
@@ -153,22 +166,12 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                     Fragment f = new BlankFragment();
                     f.setArguments(b);
 
-                    //
-//
-//
-//                //2曲目、3曲目が未指定でエラー
-//                if(di2.equals("選択してください")&&ja2.equals("選択してください")) {
-//                   new AlertDialog.Builder(getActivity())
-//                            .setTitle("エラー")
-//                            .setMessage("項目を選択してください")
-//                            .setPositiveButton("OK", null)
-//                            .show();
-//                }
 
 
                     ft.replace(R.id.fragment, f);
                     ft.commit();
                 }
+
 
             }
 
@@ -199,6 +202,29 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Spinner spinner = (Spinner) parent;
+
+
+            if(parent.getId() == R.id.spinner_g1){
+                Spinner s= (Spinner) getView().findViewById(R.id.spinner_g2);
+                Spinner sa= (Spinner) getView().findViewById(R.id.spinner_g3);
+                s.setSelection(position);
+                sa.setSelection(position);
+            }
+
+        if(parent.getId() == R.id.spinner_n1){
+            Spinner s= (Spinner) getView().findViewById(R.id.spinner_n2);
+            Spinner sa= (Spinner) getView().findViewById(R.id.spinner_n3);
+            s.setSelection(position);
+            sa.setSelection(position);
+        }
+
+        if(parent.getId() == R.id.spinner_l1){
+            Spinner s= (Spinner) getView().findViewById(R.id.spinner_l2);
+            Spinner sa= (Spinner) getView().findViewById(R.id.spinner_l3);
+            s.setSelection(position);
+            sa.setSelection(position);
+        }
+
         if(parent.getId() == R.id.spinner_n1){
             Spinner s= (Spinner) getView().findViewById(R.id.spinner_l1);
             String str = spinner.getSelectedItem().toString();
