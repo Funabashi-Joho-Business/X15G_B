@@ -1,7 +1,6 @@
 package jp.ac.chiba_fjb.b.ebi;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,12 +18,14 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
+import jp.ac.chiba_fjb.b.ebi.data.Insertriyou;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 
-public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener,Insertriyou.OnRecvListener {
 
     TextView t;
     double lv10 = 0.0;
@@ -46,16 +47,16 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     static String j[] = {"選択して下さい","POP&ANIME","niconico","東方Project","VARIETY","イロドリミドリ","言ノ葉Project","ORIGINAL"};
     static String n[] = {"選択して下さい","Basic","Advanced","Expert","Master"};
     static String[] lv = {"選択して下さい"};
-
     Calendar cal= Calendar.getInstance();
+
+
 
 
 
     @Override
     public void onViewCreated(final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+//更新時処理　下記参照
         view.findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,9 +65,16 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                 String strDay = time.year + "年" + (time.month + 1) + "月" + time.monthDay + "日" + time.hour + "時" + time.minute + "分";
                 t = (TextView) view.findViewById(R.id.textView21);
                 t.setText(strDay);
-
+                Insertriyou st = new Insertriyou(getContext(),MainFragment.this);
             }
         });
+//起動時処理・・・　公式サイトに新曲が追加されたため、データ更新されるまで表示されません
+        Time time = new Time("Asia/Tokyo");
+        time.setToNow();
+        String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
+        t = (TextView) view.findViewById(R.id.textView21);
+        t.setText(strDay);
+//        Insertriyou st = new Insertriyou(getContext(),MainFragment.this);
 
         s1 = (Spinner) view.findViewById(R.id.spinner_g1);
         s2 = (Spinner) view.findViewById(R.id.spinner_n1);
@@ -130,6 +138,9 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                 String item5 = (String)s7.getSelectedItem();
                 String item6 = (String)s8.getSelectedItem();
 
+                String item7 = (String)s3.getSelectedItem();
+                String item8 = (String)s6.getSelectedItem();
+                String item9 = (String)s9.getSelectedItem();
 //                if(("選択して下さい").equals(item3)&& ("選択して下さい").equals(item5)){
 //                    item3=item;
 //                    item5=item;
@@ -141,17 +152,16 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
 //                }
 
 
-                if (("選択して下さい").equals(item)|| ("選択して下さい").equals(item2)|| ("選択してください").equals(item3)|| ("選択してください").equals(item4)|| ("選択してください").equals(item5)|| ("選択してください").equals(item6)){
+                if (("選択して下さい").equals(item)|| ("選択して下さい").equals(item2)|| ("選択してください").equals(item3)|| ("選択してください").equals(item4)
+                        || ("選択してください").equals(item5)|| ("選択してください").equals(item6)|| ("選択してください").equals(item7)
+                        || ("選択してください").equals(item8)|| ("選択してください").equals(item9)){
 
                     new AlertDialog.Builder(getActivity())
                             .setTitle("エラー")
                             .setMessage("項目を選択して下さい")
                             .setPositiveButton("OK", null)
                             .show();
-
                 } else {
-
-
                     Bundle b = new Bundle();
                     b.putString("DI1", (String) ((Spinner) getView().findViewById(R.id.spinner_g1)).getSelectedItem());
                     b.putString("DI2", (String) ((Spinner) getView().findViewById(R.id.spinner_g2)).getSelectedItem());
@@ -159,16 +169,14 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                     b.putString("JA1", (String) ((Spinner) getView().findViewById(R.id.spinner_n1)).getSelectedItem());
                     b.putString("JA2", (String) ((Spinner) getView().findViewById(R.id.spinner_n2)).getSelectedItem());
                     b.putString("JA3", (String) ((Spinner) getView().findViewById(R.id.spinner_n3)).getSelectedItem());
-                    b.putDouble("LV1", lv10);
-                    b.putDouble("LV2", lv20);
-                    b.putDouble("LV3", lv30);
+                    b.putString("LV1", (String) ((Spinner) getView().findViewById(R.id.spinner_l1)).getSelectedItem());
+                    b.putString("LV2", (String) ((Spinner) getView().findViewById(R.id.spinner_l2)).getSelectedItem());
+                    b.putString("LV3", (String) ((Spinner) getView().findViewById(R.id.spinner_l3)).getSelectedItem());
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
                     Fragment f = new BlankFragment();
                     f.setArguments(b);
-
-
-
                     ft.replace(R.id.fragment, f);
+                    ft.addToBackStack(null);
                     ft.commit();
                 }
 
@@ -323,4 +331,8 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
 
     }
 
+    @Override
+    public void OnRecv(boolean flg) {
+
+    }
 }

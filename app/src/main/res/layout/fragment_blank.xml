@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left|center"
-                    android:text="あああああああああああああああああああああああああああああああああああああああ"
+                    android:text="Redo"
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left"
-                    android:text="前々前世"
+                    android:text="Bad Apple!! feat.nomico"
                     android:textSize="24sp" />
             </LinearLayout>
 
@@ -111,7 +111,7 @@
                 android:layout_height="25dp"
                 android:layout_weight="0.09"
                 android:gravity="center"
-                android:text="３曲目" />
+                android:text="3曲目" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="left"
-                    android:text="海老原健大"
+                    android:text="分からない"
                     android:textSize="24sp" />
             </LinearLayout>
 
