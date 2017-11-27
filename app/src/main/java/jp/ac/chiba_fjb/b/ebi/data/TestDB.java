@@ -67,9 +67,31 @@ public class TestDB extends SQLite {
         String kara = "データ無し";
         ArrayList<ArrayData> sindata = ChuniReader2.recvTest();//URLデータ
         ArrayData dt;
+        int kousiki_size = a.length;
+        int humen_size = sindata.size();
+        if(kousiki_size==humen_size){  //サイズ合ったら
+            for (Data data : a) {
+                dt = sindata.get(i);
+                String sql = String.format("INSERT INTO song_table VALUES(%d,'%s','%s','%s','%s')", data.id, SQLite.STR(data.title), STR(data.image), STR(data.category), dt.URL2);
+                exec(sql);
+                String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_bas", data.lev_bas);
+                exec(sql2);
+                String sql3 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_adv", data.lev_adv);
+                exec(sql3);
+                String sql4 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_exp", data.lev_exp);
+                exec(sql4);
+                String sql5 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_mas", data.lev_mas);
+                exec(sql5);
+                i++;
+                count++;
+
+            }
+        }else{ // サイズ合わないとき
+
         for (Data data : a) {
             String check = data.title;
             dt = sindata.get(i);
+
                 if (check.contains(dt.title2)) {
                     String sql = String.format("INSERT INTO song_table VALUES(%d,'%s','%s','%s','%s')", data.id, SQLite.STR(data.title), STR(data.image), STR(data.category), dt.URL2);
                     exec(sql);
@@ -98,6 +120,7 @@ public class TestDB extends SQLite {
                     exec(sql5);
                     count++;
                     i++;
+                }
                 }
             }
 

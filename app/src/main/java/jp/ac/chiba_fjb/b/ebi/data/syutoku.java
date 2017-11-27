@@ -47,6 +47,19 @@ public class syutoku {
                 System.out.println(data.lev_exp+"\n");
                 System.out.println(data.lev_mas+"\n");
             }
+            for(Data data : list){
+                i++;
+                //            System.out.println(data.id);
+                //            System.out.println(data.release+"\n");
+                System.out.println(data.category+"\n");
+                System.out.println(data.title+"\n");
+                System.out.println(data.artist+"\n");
+                System.out.println(data.image+"\n");
+                System.out.println(data.lev_bas+"\n");
+                System.out.println(data.lev_adv+"\n");
+                System.out.println(data.lev_exp+"\n");
+                System.out.println(data.lev_mas+"\n");
+            }
 
         }
         return list;
