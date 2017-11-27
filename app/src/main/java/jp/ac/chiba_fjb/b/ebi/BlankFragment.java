@@ -168,13 +168,17 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
         ImageGetTask task = new ImageGetTask(img1);
         ImageGetTask task2 = new ImageGetTask(img2);
         ImageGetTask task3 = new ImageGetTask(img3);
+        String url ="";
+        String url2 ="";
+        String url3 ="";
         Random rnd = new Random();
         if(unchi.size()==0) {
             title.setText("表示できません");
         }else{
             int ran = rnd.nextInt(unchi.size()-1);
             r1=ran;
-            title.setText(unchi.get(ran).URL2);
+            title.setText(unchi.get(ran).title);
+            url = unchi.get(ran).URL2;
             task.execute("https://chunithm.sega.jp/img/player/music/image/"+di10+"/"+unchi.get(ran).image);
         }
         if(unchi2.size()==0) {
@@ -183,6 +187,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
             int ran = rnd.nextInt(unchi2.size()-1);
             r2=ran;
             title2.setText(unchi2.get(ran).title);
+            url2 = unchi.get(ran).URL2;
             task2.execute("https://chunithm.sega.jp/img/player/music/image/"+di20+"/"+unchi.get(ran).image);
         }
         if(unchi3.size()==0) {
@@ -191,6 +196,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
             int ran = rnd.nextInt(unchi3.size()-1);
             r3=ran;
             title3.setText(unchi3.get(ran).title);
+            url3 = unchi.get(ran).URL2;
             task3.execute("https://chunithm.sega.jp/img/player/music/image/"+di30+"/"+unchi.get(ran).image);
         }
         bun1 = new Bundle();
@@ -205,9 +211,9 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
         bun1.putString("LV1",lv1);
         bun2.putString("LV2",lv2);
         bun3.putString("LV3",lv3);
-        bun1.putInt("R1",r1);
-        bun2.putInt("R2",r2);
-        bun3.putInt("R3",r3);
+        bun1.putString("R1",url);
+        bun2.putString("R2",url2);
+        bun3.putString("R3",url3);
 //        BlankDialogFragment f = new BlankDialogFragment();
 //        f.show(getFragmentManager(),"");
 
