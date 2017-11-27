@@ -8,7 +8,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,13 +62,20 @@ class ImageGetTask extends AsyncTask<String,Void,Bitmap> {
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment extends Fragment {
+public class BlankFragment extends Fragment implements View.OnClickListener{
 
 
     public BlankFragment() {
         // Required empty public constructor
     }
 
+    Button b1;
+    Button b2;
+    Button b3;
+    Bundle bun1;
+    Bundle bun2;
+    Bundle bun3;
+    DialogFragment newFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,6 +101,12 @@ public class BlankFragment extends Fragment {
         String di10 = "";
         String di20 = "";
         String di30 = "";
+        int r1 = 0;
+        int r2 = 0;
+        int r3 = 0;
+        view.findViewById(R.id.button).setOnClickListener(this);
+        view.findViewById(R.id.button4).setOnClickListener(this);
+        view.findViewById(R.id.button5).setOnClickListener(this);
         if(di1=="POP&ANIME"){
             di10 = "pops_anime";
         }else if(di1=="東方Project"){
@@ -145,6 +160,8 @@ public class BlankFragment extends Fragment {
         TextView title = (TextView)view.findViewById(R.id.textView9);
         TextView title2 = (TextView)view.findViewById(R.id.textView10);
         TextView title3 = (TextView)view.findViewById(R.id.textView11);
+        TextView text = (TextView)view.findViewById(R.id.textView14);
+        text.setText(di10);
         ImageView img1 = (ImageView)getView().findViewById(R.id.imageView);
         ImageView img2 = (ImageView)getView().findViewById(R.id.imageView3);
         ImageView img3 = (ImageView)getView().findViewById(R.id.imageView4);
@@ -156,13 +173,15 @@ public class BlankFragment extends Fragment {
             title.setText("表示できません");
         }else{
             int ran = rnd.nextInt(unchi.size()-1);
-            title.setText(unchi.get(ran).title);
+            r1=ran;
+            title.setText(unchi.get(ran).URL2);
             task.execute("https://chunithm.sega.jp/img/player/music/image/"+di10+"/"+unchi.get(ran).image);
         }
         if(unchi2.size()==0) {
             title2.setText("表示できません");
         }else{
             int ran = rnd.nextInt(unchi2.size()-1);
+            r2=ran;
             title2.setText(unchi2.get(ran).title);
             task2.execute("https://chunithm.sega.jp/img/player/music/image/"+di20+"/"+unchi.get(ran).image);
         }
@@ -170,8 +189,48 @@ public class BlankFragment extends Fragment {
             title3.setText("表示できません");
         }else{
             int ran = rnd.nextInt(unchi3.size()-1);
+            r3=ran;
             title3.setText(unchi3.get(ran).title);
             task3.execute("https://chunithm.sega.jp/img/player/music/image/"+di30+"/"+unchi.get(ran).image);
+        }
+        bun1 = new Bundle();
+        bun2 = new Bundle();
+        bun3 = new Bundle();
+        bun1.putString("JA1",ja1);
+        bun2.putString("JA2",ja2);
+        bun3.putString("JA3",ja3);
+        bun1.putString("DI1",di1);
+        bun2.putString("DI2",di2);
+        bun3.putString("DI3",di3);
+        bun1.putString("LV1",lv1);
+        bun2.putString("LV2",lv2);
+        bun3.putString("LV3",lv3);
+        bun1.putInt("R1",r1);
+        bun2.putInt("R2",r2);
+        bun3.putInt("R3",r3);
+//        BlankDialogFragment f = new BlankDialogFragment();
+//        f.show(getFragmentManager(),"");
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.button:
+                newFragment = new BlankDialogFragment();
+                newFragment.setArguments(bun1);
+                newFragment.show(getFragmentManager(),null);
+                break;
+            case R.id.button4:
+                newFragment = new BlankFragment2();
+                newFragment.setArguments(bun2);
+                newFragment.show(getFragmentManager(),null);
+                break;
+            case R.id.button5:
+                newFragment = new BlankFragment3();
+                newFragment.setArguments(bun3);
+                newFragment.show(getFragmentManager(),null);
+                break;
         }
     }
 }

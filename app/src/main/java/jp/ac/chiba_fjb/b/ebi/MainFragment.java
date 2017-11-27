@@ -31,7 +31,6 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     double lv10 = 0.0;
     double lv20 = 0.0;
     double lv30 = 0.0;
-
     static Spinner s1;
     static Spinner s2;
     static Spinner s3;
@@ -48,11 +47,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     static String n[] = {"選択して下さい","Basic","Advanced","Expert","Master"};
     static String[] lv = {"選択して下さい"};
     Calendar cal= Calendar.getInstance();
-
-
-
-
-
+    
     @Override
     public void onViewCreated(final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -98,46 +93,33 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
 
         s1.setAdapter(jan);
         s1.setOnItemSelectedListener(this);
-
         s2.setAdapter(nan);
         s2.setOnItemSelectedListener(this);
-
         //setLevel();
         s3.setOnItemSelectedListener(this);
-
         s4.setAdapter(jan);
         s4.setOnItemSelectedListener(this);
-
         s5.setAdapter(nan);
         s5.setOnItemSelectedListener(this);
-
         // setLevel(s6);
         s6.setOnItemSelectedListener(this);
-
         s7.setAdapter(jan);
         s7.setOnItemSelectedListener(this);
-
         s8.setAdapter(nan);
         s8.setOnItemSelectedListener(this);
-
         //setLevel(s9);
         s9.setOnItemSelectedListener(this);
-
         Button button = (Button) view.findViewById(R.id.button2);
-
-
         button.setOnClickListener(new View.OnClickListener() {
 
 
             public void onClick(View view) {
-
                 String item = (String)s1.getSelectedItem();
                 String item2 = (String)s2.getSelectedItem();
                 String item3 = (String)s4.getSelectedItem();
                 String item4 = (String)s5.getSelectedItem();
                 String item5 = (String)s7.getSelectedItem();
                 String item6 = (String)s8.getSelectedItem();
-
                 String item7 = (String)s3.getSelectedItem();
                 String item8 = (String)s6.getSelectedItem();
                 String item9 = (String)s9.getSelectedItem();
@@ -145,17 +127,13 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
 //                    item3=item;
 //                    item5=item;
 //                }
-//
 //                if(("選択して下さい").equals(item4)&& ("選択して下さい").equals(item6)){
 //                    item4=item2;
 //                    item6=item2;
 //                }
-
-
                 if (("選択して下さい").equals(item)|| ("選択して下さい").equals(item2)|| ("選択してください").equals(item3)|| ("選択してください").equals(item4)
                         || ("選択してください").equals(item5)|| ("選択してください").equals(item6)|| ("選択してください").equals(item7)
                         || ("選択してください").equals(item8)|| ("選択してください").equals(item9)){
-
                     new AlertDialog.Builder(getActivity())
                             .setTitle("エラー")
                             .setMessage("項目を選択して下さい")
@@ -179,10 +157,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                     ft.addToBackStack(null);
                     ft.commit();
                 }
-
-
             }
-
         });
 
     }

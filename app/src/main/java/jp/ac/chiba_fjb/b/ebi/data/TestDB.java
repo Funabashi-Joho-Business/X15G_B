@@ -46,13 +46,13 @@ public class TestDB extends SQLite {
         Cursor res = query(sql);
         //データがなくなるまで次の行へ
         while(res.moveToNext())
-        {
-            Data2 unko = new Data2();
-            unko.id = res.getInt(0);
-            unko.title = res.getString(1);
-            unko.image = res.getString(2);
-            unko.category = res.getString(3);
-            unko.URL2 = res.getString(4);
+            {
+                Data2 unko = new Data2();
+                unko.id = res.getInt(0);
+                unko.title = res.getString(1);
+                unko.image = res.getString(2);
+                unko.category = res.getString(3);
+                unko.URL2 = res.getString(4);
             unko.lev_bas = res.getString(5);
             unko.lev_adv = res.getString(6);
             //0列目を取り出し
@@ -88,7 +88,7 @@ public class TestDB extends SQLite {
                 } else {
                     String sql = String.format("INSERT INTO song_table VALUES(%d,'%s','%s','%s','%s')", data.id, SQLite.STR(data.title), STR(data.image), STR(data.category), kara);
                     exec(sql);
-                    String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_bas", data.lev_bas);
+                    String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s',',%s')", data.id, "lev_bas", data.lev_bas);
                     exec(sql2);
                     String sql3 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_adv", data.lev_adv);
                     exec(sql3);
