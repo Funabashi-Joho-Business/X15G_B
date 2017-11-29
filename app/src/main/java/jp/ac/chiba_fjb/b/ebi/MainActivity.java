@@ -21,7 +21,9 @@ public class MainActivity extends AppCompatActivity{
         ft.add(R.id.fragment,new MainFragment());
         ft.commit();
 
-
+        TestDB db = new TestDB(this);
+        db.test();
+        db.close();
     }
     @Override
     public void onBackPressed() {

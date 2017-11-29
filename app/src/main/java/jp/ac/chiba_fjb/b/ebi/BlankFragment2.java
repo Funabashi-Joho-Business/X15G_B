@@ -24,21 +24,20 @@ public class BlankFragment2 extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_blank_dialog, container, false);
+        View view = inflater.inflate(R.layout.fragment_blank_fragment2, container, false);
         Bundle a=getArguments();
-        String ja3 = a.getString("JA3");//1曲目の難易度.
-        String di3 = a.getString("DI3");
-        String lv3 = a.getString("LV3");
-        String r3 = a.getString("R3");
+        String ja2 = a.getString("JA2");//1曲目の難易度.
+        String di2 = a.getString("DI2");
+        String lv2 = a.getString("LV2");
+        String r2 = a.getString("R2");
         TextView text1 = (TextView)view.findViewById(R.id.text1);
         TextView text2 = (TextView)view.findViewById(R.id.text2);
         TextView text3 = (TextView)view.findViewById(R.id.text3);
         TextView text4 = (TextView)view.findViewById(R.id.text4);
-        text1.setText(ja3);
-        text2.setText(di3);
-        text3.setText(lv3);
-        text4.setText(r3);
+        text1.setText(ja2);
+        text2.setText(di2);
+        text3.setText(lv2);
+        text4.setText(r2);
         return view;
     }
 

@@ -40,9 +40,21 @@ public class TestDB extends SQLite {
         exec("DELETE FROM difficult_table");
         System.out.println("f");
     }
+    public void test(){
+        Cursor res = query("select * from difficult_table");
+        while(res.moveToNext())
+        {
+            StringBuilder sb = new StringBuilder();
+            for(int i= 0;i<res.getColumnCount();i++) {
+                sb.append(res.getString(i)+" ");
+            }
+            System.out.println(sb.toString());
+        }
+    }
     public ArrayList<Data2> getData(String di,String ja,String lv){
         ArrayList<Data2> list = new ArrayList<>();
-        String sql = String.format("select * from song_table natural join difficult_table where song_table.genre='%s' and difficult_table.level='%s' and difficult_table.difficult='%s'", SQLite.STR((ja)),SQLite.STR((lv)),SQLite.STR((di)));
+    //  String sql = String.format("select * from song_table natural join difficult_table where song_table.genre='%s' and difficult_table.level='%s' and difficult_table.difficult='%s'", SQLite.STR((ja)),SQLite.STR((lv)),SQLite.STR((di)));
+        String sql = String.format("select * from song_table natural join difficult_table where song_table.genre='%s' and difficult_table.level='%s' and difficult_table.difficult='%s'",SQLite.STR((ja)),SQLite.STR((lv)),SQLite.STR((di)));
         Cursor res = query(sql);
         //データがなくなるまで次の行へ
         while(res.moveToNext())
@@ -61,6 +73,7 @@ public class TestDB extends SQLite {
         res.close();
         return list;
     }
+
     public void insertData(Data[] a) { //取得データ
         int count = 1;
         int i = 0;
@@ -74,13 +87,13 @@ public class TestDB extends SQLite {
                 dt = sindata.get(i);
                 String sql = String.format("INSERT INTO song_table VALUES(%d,'%s','%s','%s','%s')", data.id, SQLite.STR(data.title), STR(data.image), STR(data.category), dt.URL2);
                 exec(sql);
-                String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_bas", data.lev_bas);
+                String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "Basic", data.lev_bas);
                 exec(sql2);
-                String sql3 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_adv", data.lev_adv);
+                String sql3 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "Advanced", data.lev_adv);
                 exec(sql3);
-                String sql4 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_exp", data.lev_exp);
+                String sql4 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "Expert", data.lev_exp);
                 exec(sql4);
-                String sql5 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_mas", data.lev_mas);
+                String sql5 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "Master", data.lev_mas);
                 exec(sql5);
                 i++;
                 count++;
@@ -88,10 +101,23 @@ public class TestDB extends SQLite {
             }
         }else{ // サイズ合わないとき
 
+
         for (Data data : a) {
             String check = data.title;
-            dt = sindata.get(i);
+            int g=0;
 
+            for(;g<sindata.size();g++){
+                dt = sindata.get(g);
+                if (check.contains(dt.title2)){
+                    break;
+                }
+
+            }
+            if(sindata.size()==g){
+             g=0;
+            }
+            dt = sindata.get(g);
+            System.out.println(dt.title2);
                 if (check.contains(dt.title2)) {
                     String sql = String.format("INSERT INTO song_table VALUES(%d,'%s','%s','%s','%s')", data.id, SQLite.STR(data.title), STR(data.image), STR(data.category), dt.URL2);
                     exec(sql);
@@ -105,18 +131,18 @@ public class TestDB extends SQLite {
                     exec(sql5);
                     i++;
                     count++;
-                    //    cd =true;
+                    // cd =true;
                     // break;
                 } else {
                     String sql = String.format("INSERT INTO song_table VALUES(%d,'%s','%s','%s','%s')", data.id, SQLite.STR(data.title), STR(data.image), STR(data.category), kara);
                     exec(sql);
-                    String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s',',%s')", data.id, "lev_bas", data.lev_bas);
+                    String sql2 = String.format("INSERT INTO difficult_table VALUES(%d,'%s',',%s')", data.id, "Basic", data.lev_bas);
                     exec(sql2);
-                    String sql3 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_adv", data.lev_adv);
+                    String sql3 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "Advanced", data.lev_adv);
                     exec(sql3);
-                    String sql4 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_exp", data.lev_exp);
+                    String sql4 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "Expert", data.lev_exp);
                     exec(sql4);
-                    String sql5 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "lev_mas", data.lev_mas);
+                    String sql5 = String.format("INSERT INTO difficult_table VALUES(%d,'%s','%s')", data.id, "Master", data.lev_mas);
                     exec(sql5);
                     count++;
                     i++;
