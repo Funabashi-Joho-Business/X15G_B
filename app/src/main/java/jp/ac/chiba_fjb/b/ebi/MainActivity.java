@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity{
     @Override
     public void onBackPressed() {
         int backStackCnt = getSupportFragmentManager().getBackStackEntryCount();
-        if (backStackCnt != 0) {
-            getSupportFragmentManager().popBackStack();
-        }
+        if (backStackCnt == 0)
+            super.onBackPressed();
+        getSupportFragmentManager().popBackStack();
     }
 
 
