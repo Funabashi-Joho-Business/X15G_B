@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -25,7 +26,7 @@ import jp.ac.chiba_fjb.b.ebi.data.Insertriyou;
  * A simple {@link Fragment} subclass.
  */
 
-public class MainFragment extends Fragment implements AdapterView.OnItemSelectedListener,Insertriyou.OnRecvListener {
+public class SearchFragment extends Fragment implements AdapterView.OnItemSelectedListener,Insertriyou.OnRecvListener {
 
     TextView t;
     double lv10 = 0.0;
@@ -60,7 +61,8 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                 String strDay = time.year + "年" + (time.month + 1) + "月" + time.monthDay + "日" + time.hour + "時" + time.minute + "分";
                 t = (TextView) view.findViewById(R.id.textView21);
                 t.setText(strDay);
-                Insertriyou st = new Insertriyou(getContext(),MainFragment.this);
+                Toast.makeText(getContext(), "データの受信開始", Toast.LENGTH_LONG).show();
+                Insertriyou st = new Insertriyou(getContext(),SearchFragment.this);
             }
         });
 //起動時処理・・・　公式サイトに新曲が追加されたため、データ更新されるまで表示されません
@@ -69,7 +71,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
         String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
         t = (TextView) view.findViewById(R.id.textView21);
         t.setText(strDay);
-//        Insertriyou st = new Insertriyou(getContext(),MainFragment.this);
+//        Insertriyou st = new Insertriyou(getContext(),SearchFragment.this);
 
         s1 = (Spinner) view.findViewById(R.id.spinner_g1);
         s2 = (Spinner) view.findViewById(R.id.spinner_n1);
@@ -151,7 +153,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                     b.putString("LV2", (String) ((Spinner) getView().findViewById(R.id.spinner_l2)).getSelectedItem());
                     b.putString("LV3", (String) ((Spinner) getView().findViewById(R.id.spinner_l3)).getSelectedItem());
                     FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    Fragment f = new BlankFragment();
+                    Fragment f = new ResultFragment();
                     f.setArguments(b);
                     ft.replace(R.id.fragment, f);
                     ft.addToBackStack(null);
@@ -293,7 +295,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     }
 
 
-    public MainFragment() {
+    public SearchFragment() {
         // Required empty public constructor
 
     }
@@ -302,12 +304,16 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        return inflater.inflate(R.layout.fragment_search, container, false);
 
     }
 
     @Override
     public void OnRecv(boolean flg) {
+        if(flg)
+            Toast.makeText(getContext(), "データの受信成功", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(getContext(), "データの受信失敗", Toast.LENGTH_SHORT).show();
 
     }
 }

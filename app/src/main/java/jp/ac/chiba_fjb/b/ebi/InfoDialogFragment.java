@@ -13,10 +13,10 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment3 extends DialogFragment {
+public class InfoDialogFragment extends DialogFragment {
 
 
-    public BlankFragment3() {
+    public InfoDialogFragment() {
         // Required empty public constructor
     }
 
@@ -24,20 +24,20 @@ public class BlankFragment3 extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_blank_fragment3, container, false);
+        View view = inflater.inflate(R.layout.fragment_info_dialog, container, false);
         Bundle a=getArguments();
-        String ja3 = a.getString("JA3");//1曲目の難易度.
-        String di3 = a.getString("DI3");
-        String lv3 = a.getString("LV3");
-        String r3 = a.getString("R3");
+        String ja1 = a.getString("JA");//1曲目の難易度.
+        String di1 = a.getString("DI");
+        String lv1 = a.getString("LV");
+        String r1 = a.getString("R");
         TextView text1 = (TextView)view.findViewById(R.id.text1);
         TextView text2 = (TextView)view.findViewById(R.id.text2);
         TextView text3 = (TextView)view.findViewById(R.id.text3);
         TextView text4 = (TextView)view.findViewById(R.id.text4);
-        text1.setText(ja3);
-        text2.setText(di3);
-        text3.setText(lv3);
-        text4.setText(r3);
+        text1.setText(ja1);
+        text2.setText(di1);
+        text3.setText(lv1);
+        text4.setText(r1);
         return view;
     }
 

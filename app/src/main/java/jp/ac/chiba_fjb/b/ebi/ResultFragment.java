@@ -1,17 +1,13 @@
 package jp.ac.chiba_fjb.b.ebi;
 
 
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,11 +21,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import jp.ac.chiba_fjb.b.ebi.data.Data2;
-import jp.ac.chiba_fjb.b.ebi.data.SQLite;
 import jp.ac.chiba_fjb.b.ebi.data.TestDB;
 
 class ImageGetTask extends AsyncTask<String,Void,Bitmap> {
@@ -62,10 +55,10 @@ class ImageGetTask extends AsyncTask<String,Void,Bitmap> {
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment extends Fragment implements View.OnClickListener{
+public class ResultFragment extends Fragment implements View.OnClickListener{
 
 
-    public BlankFragment() {
+    public ResultFragment() {
         // Required empty public constructor
     }
 
@@ -81,7 +74,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank, container, false);
+        return inflater.inflate(R.layout.fragment_result, container, false);
     }
 
 
@@ -202,19 +195,19 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
         bun1 = new Bundle();
         bun2 = new Bundle();
         bun3 = new Bundle();
-        bun1.putString("JA1",ja1);
-        bun2.putString("JA2",ja2);
-        bun3.putString("JA3",ja3);
-        bun1.putString("DI1",di1);
-        bun2.putString("DI2",di2);
-        bun3.putString("DI3",di3);
-        bun1.putString("LV1",lv1);
-        bun2.putString("LV2",lv2);
-        bun3.putString("LV3",lv3);
-        bun1.putString("R1",url);
-        bun2.putString("R2",url2);
-        bun3.putString("R3",url3);
-//        BlankDialogFragment f = new BlankDialogFragment();
+        bun1.putString("JA",ja1);
+        bun2.putString("JA",ja2);
+        bun3.putString("JA",ja3);
+        bun1.putString("DI",di1);
+        bun2.putString("DI",di2);
+        bun3.putString("DI",di3);
+        bun1.putString("LV",lv1);
+        bun2.putString("LV",lv2);
+        bun3.putString("LV",lv3);
+        bun1.putString("R",url);
+        bun2.putString("R",url2);
+        bun3.putString("R",url3);
+//        InfoDialogFragment f = new InfoDialogFragment();
 //        f.show(getFragmentManager(),"");
 
     }
@@ -223,17 +216,17 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.button:
-                newFragment = new BlankDialogFragment();
+                newFragment = new InfoDialogFragment();
                 newFragment.setArguments(bun1);
                 newFragment.show(getFragmentManager(),null);
                 break;
             case R.id.button4:
-                newFragment = new BlankFragment2();
+                newFragment = new InfoDialogFragment();
                 newFragment.setArguments(bun2);
                 newFragment.show(getFragmentManager(),null);
                 break;
             case R.id.button5:
-                newFragment = new BlankFragment3();
+                newFragment = new InfoDialogFragment();
                 newFragment.setArguments(bun3);
                 newFragment.show(getFragmentManager(),null);
                 break;
