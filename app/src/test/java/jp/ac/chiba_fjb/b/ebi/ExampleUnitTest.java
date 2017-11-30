@@ -1,10 +1,7 @@
 package jp.ac.chiba_fjb.b.ebi;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jp.ac.chiba_fjb.b.ebi.data.Json.Json;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 class Data{
     public int id;
     public int release;

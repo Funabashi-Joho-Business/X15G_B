@@ -43,7 +43,7 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
     static ArrayAdapter<String> jan;
     static ArrayAdapter<String> nan;
     static ArrayAdapter<String> level;
-    static String j[] = {"選択して下さい","POP&ANIME","niconico","東方Project","VARIETY","イロドリミドリ","言ノ葉Project","ORIGINAL"};
+    static String j[] = {"選択して下さい","ALL","POP&ANIME","niconico","東方Project","VARIETY","イロドリミドリ","言ノ葉Project","ORIGINAL"};
     static String n[] = {"選択して下さい","Basic","Advanced","Expert","Master"};
     static String[] lv = {"選択して下さい"};
     Calendar cal= Calendar.getInstance();
