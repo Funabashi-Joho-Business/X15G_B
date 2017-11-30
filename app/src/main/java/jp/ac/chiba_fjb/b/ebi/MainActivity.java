@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.fragment,new MainFragment());
+        ft.add(R.id.fragment,new SearchFragment());
         ft.commit();
 
         TestDB db = new TestDB(this);

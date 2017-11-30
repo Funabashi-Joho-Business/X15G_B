@@ -1,40 +1,43 @@
 package jp.ac.chiba_fjb.b.ebi.data;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
 /**
  * Created by x15g008 on 2017/10/25.
  */
 
-public class Insertriyou {
-
-
+public class Insertriyou extends AsyncTask<Void, Void, Boolean>{
     public  interface OnRecvListener{
         public  void OnRecv(boolean flg);
     }
-    Data[] list;
+    Context mContext;
+    OnRecvListener mListener;
     public Insertriyou(final Context con, final OnRecvListener listener){
-
-        new Thread(){
-            @Override
-            public void run() {
-                syutoku dl = new syutoku();
-                if(dl!=null){
-                    TestDB db = new TestDB(con);
-                    db.tabledateDaelete();
-                    try {
-                        list = dl.test2();
-                        db.insertData(list);
-                        listener.OnRecv(true);
-                        return;
-                    }catch(Exception e){
-                        e.printStackTrace();
-                    }
-                    listener.OnRecv(false);
-                }
+        mContext = con;
+        mListener = listener;
+        execute();
+    }
+    @Override
+    protected Boolean doInBackground(Void... voids) {
+        syutoku dl = new syutoku();
+        if(dl!=null) {
+            TestDB db = new TestDB(mContext);
+            db.tabledateDaelete();
+            try {
+                Data[] list = dl.test2();
+                db.insertData(list);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }.start();
-
+        }
+        return false;
     }
 
+    @Override
+    protected void onPostExecute(Boolean flag) {
+        super.onPostExecute(flag);
+        mListener.OnRecv(flag);
+    }
 }
