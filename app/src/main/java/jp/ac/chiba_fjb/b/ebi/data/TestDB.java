@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class TestDB extends SQLite {
     public TestDB(Context context) {
         //ここでデータベースのファイル名とバージョン番号を指定
-        super(context, "test.db", 1);
+        super(context, "test1.db", 1);
         System.out.println("a");
     }
 

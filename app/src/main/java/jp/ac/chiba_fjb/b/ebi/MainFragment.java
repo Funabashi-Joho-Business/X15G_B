@@ -123,17 +123,9 @@ public class MainFragment extends Fragment implements AdapterView.OnItemSelected
                 String item7 = (String)s3.getSelectedItem();
                 String item8 = (String)s6.getSelectedItem();
                 String item9 = (String)s9.getSelectedItem();
-//                if(("選択して下さい").equals(item3)&& ("選択して下さい").equals(item5)){
-//                    item3=item;
-//                    item5=item;
-//                }
-//                if(("選択して下さい").equals(item4)&& ("選択して下さい").equals(item6)){
-//                    item4=item2;
-//                    item6=item2;
-//                }
-                if (("選択して下さい").equals(item)|| ("選択して下さい").equals(item2)|| ("選択してください").equals(item3)|| ("選択してください").equals(item4)
-                        || ("選択してください").equals(item5)|| ("選択してください").equals(item6)|| ("選択してください").equals(item7)
-                        || ("選択してください").equals(item8)|| ("選択してください").equals(item9)){
+
+                if (("選択して下さい").equals(item)|| ("選択して下さい").equals(item2)|| ("選択してください").equals(item7)|| ("選択してください").equals(item3)|| ("選択してください").equals(item4)
+                        || ("選択してください").equals(item8)|| ("選択してください").equals(item5)|| ("選択してください").equals(item6)|| ("選択してください").equals(item9)){
                     new AlertDialog.Builder(getActivity())
                             .setTitle("エラー")
                             .setMessage("項目を選択して下さい")
