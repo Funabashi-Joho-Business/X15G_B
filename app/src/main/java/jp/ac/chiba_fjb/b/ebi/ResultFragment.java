@@ -168,7 +168,11 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
         if(unchi.size()==0) {
             title.setText("表示できません");
         }else{
-            int ran = rnd.nextInt(unchi.size()-1);
+
+            int ran = 0;
+            if(unchi.size()>1){
+                ran = rnd.nextInt(unchi.size()-1);
+            }
             r1=ran;
             title.setText(unchi.get(ran).title);
             url = unchi.get(ran).URL2;
@@ -176,8 +180,12 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
         }
         if(unchi2.size()==0) {
             title2.setText("表示できません");
+
         }else{
-            int ran = rnd.nextInt(unchi2.size()-1);
+            int ran = 0;
+            if(unchi.size()>1) {
+                ran = rnd.nextInt(unchi2.size() - 1);
+            }
             r2=ran;
             title2.setText(unchi2.get(ran).title);
             url2 = unchi.get(ran).URL2;
@@ -186,7 +194,10 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
         if(unchi3.size()==0) {
             title3.setText("表示できません");
         }else{
-            int ran = rnd.nextInt(unchi3.size()-1);
+            int ran = 0;
+            if(unchi.size()>1){
+                ran = rnd.nextInt(unchi3.size()-1);
+            }
             r3=ran;
             title3.setText(unchi3.get(ran).title);
             url3 = unchi.get(ran).URL2;

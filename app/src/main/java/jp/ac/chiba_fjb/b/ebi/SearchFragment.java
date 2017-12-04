@@ -66,11 +66,12 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
             }
         });
 //起動時処理・・・　公式サイトに新曲が追加されたため、データ更新されるまで表示されません
-        Time time = new Time("Asia/Tokyo");
-        time.setToNow();
-        String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
+//        Time time = new Time("Asia/Tokyo");
+//        time.setToNow();
+//        String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
         t = (TextView) view.findViewById(R.id.textView21);
-        t.setText(strDay);
+        t.setText("更新してください");
+//        t.setText(strDay);
 //        Insertriyou st = new Insertriyou(getContext(),SearchFragment.this);
 
         s1 = (Spinner) view.findViewById(R.id.spinner_g1);
@@ -166,13 +167,13 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     public void setLevel(Spinner s,String str){
         String[] lv;
         if (str.equals("Basic")) {
-            lv = new String[]{"選択して下さい", "1", "2", "3", "4", "5", "6"};
+            lv = new String[]{"選択して下さい","ALL", "1", "2", "3", "4", "5", "6"};
         } else if (str.equals("Advanced")) {
-            lv = new String[]{"選択して下さい", "4", "5", "6", "7", "7+", "8", "8+", "9", "9+"};
+            lv = new String[]{"選択して下さい","ALL", "4", "5", "6", "7", "7+", "8", "8+", "9", "9+"};
         } else if (str.equals("Expert")) {
-            lv = new String[]{"選択して下さい", "7", "7+", "8", "8+", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13"};
+            lv = new String[]{"選択して下さい","ALL", "7", "7+", "8", "8+", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13"};
         } else if (str.equals("Master")) {
-            lv = new String[]{"選択して下さい", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13", "13+", "14"};
+            lv = new String[]{"選択して下さい","ALL", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13", "13+", "14"};
         } else {
             lv = new String[]{"選択して下さい"};
         }
