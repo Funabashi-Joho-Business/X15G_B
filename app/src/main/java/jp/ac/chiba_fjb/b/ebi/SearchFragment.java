@@ -44,7 +44,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     static ArrayAdapter<String> jan;
     static ArrayAdapter<String> nan;
     static ArrayAdapter<String> level;
-    static String j[] = {"選択して下さい","ALL","POP&ANIME","niconico","東方Project","VARIETY","イロドリミドリ","言ノ葉Project","ORIGINAL"};
+    static String j[] = {"選択して下さい","POP&ANIME","niconico","東方Project","VARIETY","イロドリミドリ","言ノ葉Project","ORIGINAL"};
     static String n[] = {"選択して下さい","Basic","Advanced","Expert","Master"};
     static String[] lv = {"選択して下さい"};
     Calendar cal= Calendar.getInstance();
@@ -167,13 +167,13 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     public void setLevel(Spinner s,String str){
         String[] lv;
         if (str.equals("Basic")) {
-            lv = new String[]{"選択して下さい","ALL", "1", "2", "3", "4", "5", "6"};
+            lv = new String[]{"選択して下さい", "1", "2", "3", "4", "5", "6"};
         } else if (str.equals("Advanced")) {
-            lv = new String[]{"選択して下さい","ALL", "4", "5", "6", "7", "7+", "8", "8+", "9", "9+"};
+            lv = new String[]{"選択して下さい", "4", "5", "6", "7", "7+", "8", "8+", "9", "9+"};
         } else if (str.equals("Expert")) {
-            lv = new String[]{"選択して下さい","ALL", "7", "7+", "8", "8+", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13"};
+            lv = new String[]{"選択して下さい", "7", "7+", "8", "8+", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13"};
         } else if (str.equals("Master")) {
-            lv = new String[]{"選択して下さい","ALL", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13", "13+", "14"};
+            lv = new String[]{"選択して下さい", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13", "13+", "14"};
         } else {
             lv = new String[]{"選択して下さい"};
         }
