@@ -153,8 +153,8 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
         TextView title = (TextView)view.findViewById(R.id.textView9);
         TextView title2 = (TextView)view.findViewById(R.id.textView10);
         TextView title3 = (TextView)view.findViewById(R.id.textView11);
-        TextView text = (TextView)view.findViewById(R.id.textView14);
-        text.setText(di10);
+       // TextView text = (TextView)view.findViewById(R.id.textView14);
+        //text.setText(di10);
         ImageView img1 = (ImageView)getView().findViewById(R.id.imageView);
         ImageView img2 = (ImageView)getView().findViewById(R.id.imageView3);
         ImageView img3 = (ImageView)getView().findViewById(R.id.imageView4);

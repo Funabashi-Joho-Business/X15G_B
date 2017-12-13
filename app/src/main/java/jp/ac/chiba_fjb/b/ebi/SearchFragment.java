@@ -1,6 +1,9 @@
 package jp.ac.chiba_fjb.b.ebi;
 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,7 +20,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.Calendar;
+import java.util.Date;
 
 import jp.ac.chiba_fjb.b.ebi.data.Insertriyou;
 
@@ -48,29 +54,33 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     static String n[] = {"選択して下さい","Basic","Advanced","Expert","Master"};
     static String[] lv = {"選択して下さい"};
     Calendar cal= Calendar.getInstance();
-    
+    private View view;
+    private Button b;
+
     @Override
     public void onViewCreated(final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//更新時処理　下記参照
+
+//更新時処理　下記参照]
+
         view.findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Time time = new Time("Asia/Tokyo");
-                time.setToNow();
-                String strDay = time.year + "年" + (time.month + 1) + "月" + time.monthDay + "日" + time.hour + "時" + time.minute + "分";
-                t = (TextView) view.findViewById(R.id.textView21);
-                t.setText(strDay);
                 Toast.makeText(getContext(), "データの受信開始", Toast.LENGTH_LONG).show();
                 Insertriyou st = new Insertriyou(getContext(),SearchFragment.this);
+                b = (Button)view.findViewById(R.id.button3);
+                b.setEnabled(false);
             }
         });
+        t = (TextView) view.findViewById(R.id.textView21);
+        updateDate();
+
+        //t.setText("更新してください");
+
 //起動時処理・・・　公式サイトに新曲が追加されたため、データ更新されるまで表示されません
 //        Time time = new Time("Asia/Tokyo");
 //        time.setToNow();
 //        String strDay = time.year + "年" + (time.month+1) + "月" + time.monthDay +"日"+time.hour + "時" + time.minute + "分" ;
-        t = (TextView) view.findViewById(R.id.textView21);
-        t.setText("更新してください");
 //        t.setText(strDay);
 //        Insertriyou st = new Insertriyou(getContext(),SearchFragment.this);
 
@@ -311,10 +321,35 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 
     @Override
     public void OnRecv(boolean flg) {
-        if(flg)
+        if(flg){
             Toast.makeText(getContext(), "データの受信成功", Toast.LENGTH_SHORT).show();
+
+            Date d = new Date();
+            SharedPreferences pref = getContext().getSharedPreferences("SaveData", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putLong("date", d.getTime());
+            editor.apply();
+            updateDate();
+            b.setEnabled(true);
+        }
+
         else
             Toast.makeText(getContext(), "データの受信失敗", Toast.LENGTH_SHORT).show();
+            b.setEnabled(true);
+    }
+    void updateDate(){
 
+        SharedPreferences pref = getContext().getSharedPreferences("SaveData", Context.MODE_PRIVATE);
+        long data = pref.getLong("date",-1);
+        if(data == -1) {
+            t.setText("更新してください");
+        }else{
+            Date d = new Date(data);
+            String strDay = (d.getYear() + 1900) + "年" + (d.getMonth() + 1) + "月" + (d.getDay() + 10) + "日" + d.getHours() + "時" + d.getMinutes() + "分";
+            t.setText(strDay);
+        }
+
+//        t = (TextView) view.findViewById(R.id.textView21);
+//        t.setText(strDay);
     }
 }

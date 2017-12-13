@@ -5,6 +5,8 @@
     <!-- 枠線 width:線の幅、color:線の色 -->
     <stroke
         android:width="2dp"
-        android:color="#00ff00" />
+        android:color="#000000"
+        android:background="#C8C8C8"/>
+
 
 </shape>

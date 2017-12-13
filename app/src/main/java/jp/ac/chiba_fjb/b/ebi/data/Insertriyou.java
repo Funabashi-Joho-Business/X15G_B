@@ -27,6 +27,8 @@ public class Insertriyou extends AsyncTask<Void, Void, Boolean>{
             try {
                 Data[] list = dl.test2();
                 db.insertData(list);
+
+                db.close();
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

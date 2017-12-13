@@ -65,17 +65,19 @@
                         android:layout_height="40dp"
                         android:gravity="center"
                         android:text="1曲目"
-                        android:textSize="30sp"/>
+                        android:textSize="30sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/frame_stale"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/frame_stale"
+                            android:baselineAligned="false"
+                            android:nestedScrollingEnabled="false"
                             android:orientation="horizontal">
 
                             <TextView
@@ -84,22 +86,22 @@
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
 
+                                android:gravity="center_vertical|center_horizontal"
                                 android:text="ジャンル"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_g1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
 
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/frame_stale"
                             android:orientation="horizontal">
 
                             <TextView
@@ -107,21 +109,21 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
+                                android:gravity="center_vertical|center_horizontal"
                                 android:text="難易度"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_n1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/frame_stale"
                             android:orientation="horizontal">
 
                             <TextView
@@ -129,14 +131,15 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
+                                android:gravity="center_vertical|center_horizontal"
                                 android:text="レベル"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_l1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
 
                         </LinearLayout>
 
@@ -148,17 +151,17 @@
                         android:layout_height="40dp"
                         android:gravity="center"
                         android:text="2曲目"
-                        android:textSize="30sp"/>
+                        android:textSize="30sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/frame_stale"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
-                            android:background="@drawable/frame_stale"
                             android:orientation="horizontal">
 
                             <TextView
@@ -166,21 +169,21 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
+                                android:gravity="center_vertical|center_horizontal"
                                 android:text="ジャンル"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_g2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
-                            android:background="@drawable/frame_stale"
                             android:orientation="horizontal">
 
                             <TextView
@@ -188,21 +191,21 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text="難易度"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_n2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/frame_stale"
                             android:orientation="horizontal">
 
                             <TextView
@@ -210,14 +213,15 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text="レベル"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_l2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
 
                         </LinearLayout>
 
@@ -234,17 +238,17 @@
                         android:layout_height="40dp"
                         android:gravity="center"
                         android:text="3曲目"
-                        android:textSize="30sp"/>
+                        android:textSize="30sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/frame_stale"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
-                            android:background="@drawable/frame_stale"
                             android:orientation="horizontal">
 
                             <TextView
@@ -252,20 +256,20 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text="ジャンル"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_g3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/frame_stale"
                             android:orientation="horizontal">
 
                             <TextView
@@ -273,20 +277,20 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text="難易度"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_n3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/frame_stale"
                             android:orientation="horizontal">
 
                             <TextView
@@ -294,14 +298,15 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="30dp"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:text="レベル"
-                                android:textSize="24sp"/>
+                                android:textSize="24sp" />
 
                             <Spinner
                                 android:id="@+id/spinner_l3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"/>
+                                android:layout_weight="1" />
                         </LinearLayout>
 
                     </LinearLayout>
