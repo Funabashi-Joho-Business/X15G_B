@@ -37,7 +37,7 @@ public class InfoDialogFragment extends DialogFragment {
         text1.setText("難易度："+ja1);
         text2.setText("ジャンル："+di1);
         text3.setText("レベル："+lv1);
-        text4.setText("譜面サイトリンク："+r1);
+        text4.setText("譜面サイトリンク：\n" + r1);
         return view;
     }
 
