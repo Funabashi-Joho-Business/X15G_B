@@ -23,11 +23,13 @@ public class Insertriyou extends AsyncTask<Void, Void, Boolean>{
         syutoku dl = new syutoku();
         if(dl!=null) {
             TestDB db = new TestDB(mContext);
-            db.tabledateDaelete();
+
             try {
                 Data[] list = dl.test2();
-                db.insertData(list);
-
+                if(list != null && list.length != 0) {
+                    db.tabledateDaelete();
+                    db.insertData(list);
+                }
                 db.close();
                 return true;
             } catch (Exception e) {

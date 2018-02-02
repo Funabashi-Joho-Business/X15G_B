@@ -112,6 +112,8 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
             di10 ="kotonoha";
         }else if(di1=="ORIGINAL"){
             di10 ="original";
+        }else if(di1=="ALL") {
+            di10 = "*";
         }else{
             di10="niconico";
         }
@@ -127,6 +129,8 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
             di20 ="kotonoha";
         }else if(di2=="ORIGINAL"){
             di20 ="original";
+        }else if(di2=="ALL") {
+            di20 = "*";
         }else{
             di20="niconico";
         }
@@ -142,6 +146,8 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
             di30 ="kotonoha";
         }else if(di3=="ORIGINAL"){
             di30 ="original";
+        }else if(di3=="ALL") {
+            di30 = "*";
         }else{
             di30="niconico";
         }
@@ -171,7 +177,7 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
 
             int ran = 0;
             if(unchi.size()>1){
-                ran = rnd.nextInt(unchi.size()-1);
+                ran = rnd.nextInt(unchi.size());
             }
             r1=ran;
             title.setText(unchi.get(ran).title);
@@ -184,7 +190,7 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
         }else{
             int ran = 0;
             if(unchi.size()>1) {
-                ran = rnd.nextInt(unchi2.size() - 1);
+                ran = rnd.nextInt(unchi2.size());
             }
             r2=ran;
             title2.setText(unchi2.get(ran).title);
@@ -196,7 +202,7 @@ public class ResultFragment extends Fragment implements View.OnClickListener{
         }else{
             int ran = 0;
             if(unchi.size()>1){
-                ran = rnd.nextInt(unchi3.size()-1);
+                ran = rnd.nextInt(unchi3.size());
             }
             r3=ran;
             title3.setText(unchi3.get(ran).title);

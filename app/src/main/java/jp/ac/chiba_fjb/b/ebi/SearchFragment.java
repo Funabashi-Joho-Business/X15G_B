@@ -50,8 +50,8 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     static ArrayAdapter<String> jan;
     static ArrayAdapter<String> nan;
     static ArrayAdapter<String> level;
-    static String j[] = {"選択して下さい","POP&ANIME","niconico","東方Project","VARIETY","イロドリミドリ","言ノ葉Project","ORIGINAL"};
-    static String n[] = {"選択して下さい","Basic","Advanced","Expert","Master"};
+    static String j[] = {"選択して下さい","ALL","POP&ANIME","niconico","東方Project","VARIETY","イロドリミドリ","言ノ葉Project","ORIGINAL"};
+    static String n[] = {"選択して下さい","ALL","Basic","Advanced","Expert","Master"};
     static String[] lv = {"選択して下さい"};
     Calendar cal= Calendar.getInstance();
     private View view;
@@ -144,9 +144,9 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 //                    item4=item2;
 //                    item6=item2;
 //                }
-                if (("選択して下さい").equals(item)|| ("選択して下さい").equals(item2)|| ("選択してください").equals(item3)|| ("選択してください").equals(item4)
-                        || ("選択してください").equals(item5)|| ("選択してください").equals(item6)|| ("選択してください").equals(item7)
-                        || ("選択してください").equals(item8)|| ("選択してください").equals(item9)){
+                if (("選択して下さい").equals(item)|| ("選択して下さい").equals(item2)|| ("選択して下さい").equals(item3)|| ("選択して下さい").equals(item4)
+                        || ("選択して下さい").equals(item5)|| ("選択して下さい").equals(item6)|| ("選択して下さい").equals(item7)
+                        || ("選択して下さい").equals(item8)|| ("選択して下さい").equals(item9)){
                     new AlertDialog.Builder(getActivity())
                             .setTitle("エラー")
                             .setMessage("項目を選択して下さい")
@@ -177,13 +177,15 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     public void setLevel(Spinner s,String str){
         String[] lv;
         if (str.equals("Basic")) {
-            lv = new String[]{"選択して下さい", "1", "2", "3", "4", "5", "6"};
+            lv = new String[]{"選択して下さい", "ALL", "1", "2", "3", "4", "5", "6"};
         } else if (str.equals("Advanced")) {
-            lv = new String[]{"選択して下さい", "4", "5", "6", "7", "7+", "8", "8+", "9", "9+"};
+            lv = new String[]{"選択して下さい", "ALL", "4", "5", "6", "7", "7+", "8", "8+", "9", "9+"};
         } else if (str.equals("Expert")) {
-            lv = new String[]{"選択して下さい", "7", "7+", "8", "8+", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13"};
+            lv = new String[]{"選択して下さい", "ALL", "7", "7+", "8", "8+", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13"};
         } else if (str.equals("Master")) {
-            lv = new String[]{"選択して下さい", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13", "13+", "14"};
+            lv = new String[]{"選択して下さい", "ALL", "9", "9+", "10", "10+", "11", "11+", "12", "12+", "13", "13+", "14"};
+        } else  if (str.equals("ALL")) {
+            lv = new String[]{"ALL"};
         } else {
             lv = new String[]{"選択して下さい"};
         }
@@ -345,7 +347,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
             t.setText("更新してください");
         }else{
             Date d = new Date(data);
-            String strDay = (d.getYear() + 1900) + "年" + (d.getMonth() + 1) + "月" + (d.getDay() + 10) + "日" + d.getHours() + "時" + d.getMinutes() + "分";
+            String strDay = (d.getYear() + 1900) + "年" + (d.getMonth() + 1) + "月" + (d.getDate()) + "日" + d.getHours() + "時" + d.getMinutes() + "分";
             t.setText(strDay);
         }
 
